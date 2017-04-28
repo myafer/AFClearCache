@@ -34,7 +34,7 @@ class AFClearCacheManager: NSObject {
     }
     
     
-    public class func asynCaleCacheSize(calcCallBack: @escaping (String) -> ()) {
+    public class func asynCalcCacheSize(calcCallBack: @escaping (String) -> ()) {
         let queue: DispatchQueue = DispatchQueue.global()
         queue.async { 
             let size = AFClearCacheManager.calcCacheSize()

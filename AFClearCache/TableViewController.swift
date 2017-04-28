@@ -13,7 +13,7 @@ class TableViewController: UITableViewController {
     @IBOutlet weak var sizeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        AFClearCacheManager.asynCaleCacheSize { (size) in
+        AFClearCacheManager.asynCalcCacheSize { (size) in
             self.sizeLabel.text = size + "m"
         }
        
