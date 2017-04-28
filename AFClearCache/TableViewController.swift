@@ -19,11 +19,10 @@ class TableViewController: UITableViewController {
        
     }
     
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
-            AFClearCacheManager.asynRemoveCache(calcCallBack: { 
-                let ale = UIAlertView(title: "温馨提示", message: "删除缓存成功！", delegate: nil, cancelButtonTitle: "确定")
+            AFClearCacheManager.asynRemoveCache(calcCallBack: { (size) in
+                let ale = UIAlertView(title: "温馨提示", message: "删除缓存成功！现在\(size)M。", delegate: nil, cancelButtonTitle: "确定")
                 ale.show()
             })
         }

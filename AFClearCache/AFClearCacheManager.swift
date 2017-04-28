@@ -58,15 +58,31 @@ class AFClearCacheManager: NSObject {
         }
     }
     
-    public class func asynRemoveCache(calcCallBack: @escaping () -> ()) {
+    public class func asynRemoveCache(calcCallBack: @escaping (String) -> ()) {
         let queue: DispatchQueue = DispatchQueue.global()
         queue.async {
-            removeCache()
+            AFClearCacheManager.removeCache()
+            let size = AFClearCacheManager.calcCacheSize()
             DispatchQueue.main.async(execute: {
-                calcCallBack()
+                calcCallBack(String.init(format: "%.2f", size))
             })
         }
-
+        
     }
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
